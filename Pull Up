@@ -1,0 +1,75 @@
+// Check if Geolocation is supported
+if ("geolocation" in navigator) {
+    // Get the user's current position
+    navigator.geolocation.getCurrentPosition(function(position) {
+        // Extract latitude and longitude
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        // Display the coordinates
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+    }, function(error) {
+        console.error(`Error Code = ${error.code} - ${error.message}`);
+    });
+} else {
+    console.log("Geolocation is not supported by this browser.");
+}
+// Create a sign-up box for artists and producers
+const signUpBox = document.createElement('div');
+signUpBox.style.position = 'absolute';
+signUpBox.style.top = '50%';
+signUpBox.style.left = '50%';
+signUpBox.style.transform = 'translate(-50%, -50%)';
+signUpBox.style.padding = '20px';
+signUpBox.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+signUpBox.style.borderRadius = '10px';
+signUpBox.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+
+// Create a form inside the sign-up box
+const form = document.createElement('form');
+
+// Create input fields for artist and producer sign-up
+const artistInput = document.createElement('input');
+artistInput.type = 'text';
+artistInput.placeholder = 'Artist Name';
+artistInput.style.display = 'block';
+artistInput.style.marginBottom = '10px';
+artistInput.style.width = '100%';
+artistInput.style.padding = '10px';
+artistInput.style.borderRadius = '5px';
+artistInput.style.border = '1px solid #ccc';
+
+const producerInput = document.createElement('input');
+producerInput.type = 'text';
+producerInput.placeholder = 'Producer Name';
+producerInput.style.display = 'block';
+producerInput.style.marginBottom = '10px';
+producerInput.style.width = '100%';
+producerInput.style.padding = '10px';
+producerInput.style.borderRadius = '5px';
+producerInput.style.border = '1px solid #ccc';
+
+// Create a submit button
+const submitButton = document.createElement('button');
+submitButton.type = 'submit';
+submitButton.textContent = 'Sign Up';
+submitButton.style.display = 'block';
+submitButton.style.width = '100%';
+submitButton.style.padding = '10px';
+submitButton.style.borderRadius = '5px';
+submitButton.style.border = 'none';
+submitButton.style.backgroundColor = '#007BFF';
+submitButton.style.color = '#fff';
+submitButton.style.fontSize = '16px';
+submitButton.style.cursor = 'pointer';
+
+// Append input fields and button to the form
+form.appendChild(artistInput);
+form.appendChild(producerInput);
+form.appendChild(submitButton);
+
+// Append the form to the sign-up box
+signUpBox.appendChild(form);
+
+// Append the sign-up box to the body
+document.body.appendChild(signUpBox);
